@@ -1,0 +1,23 @@
+﻿
+
+@model Ids4_client.Models.SecureModel
+
+
+@{
+    ViewData["Title"] = "Secured";
+}
+
+<h1>Secured</h1>
+
+<p> @Model.Token </p>
+
+@if (User.IsInRole("admin"))
+{
+    <p> You are an admin </p>
+}
+
+@foreach (var item in Model.Claims)
+{
+    <p> Claim Type : @item.Type , Claim Value : @item.Value </p>
+}
+
